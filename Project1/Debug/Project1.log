@@ -1,0 +1,3 @@
+﻿  mainmenu.cpp
+C:\Users\леха\source\repos\projecttest\Project1\Project1\mainmenu.cpp(16,43): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+C:\Users\леха\source\repos\projecttest\Project1\Project1\mainmenu.cpp(16,36): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
