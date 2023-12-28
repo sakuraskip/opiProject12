@@ -10,9 +10,9 @@ int authorspagee()
 	bool openMenu = true;
 	int choice = 0;
 
-	RenderWindow menuWindow(VideoMode(1920, 1080), "authors");//width и height можно заменить на нужные значения
+	RenderWindow menuWindow(VideoMode(1920, 1080), "authors");//width ГЁ height Г¬Г®Г¦Г­Г® Г§Г Г¬ГҐГ­ГЁГІГј Г­Г  Г­ГіГ¦Г­Г»ГҐ Г§Г­Г Г·ГҐГ­ГЁГї
 	menuWindow.setFramerateLimit(15);
-	RectangleShape menubackground(Vector2f(1920, 1080));//прямоугольник для фона
+	RectangleShape menubackground(Vector2f(1920, 1080));//ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­ГЁГЄ Г¤Г«Гї ГґГ®Г­Г 
 
 	Texture authorspage;
 	authorspage.loadFromFile("images/authorspage.png");
