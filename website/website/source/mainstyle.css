@@ -1,0 +1,103 @@
+@font-face {
+    font-family: Exo2;
+    src: url(fonts/Exo2-Regular.woff);
+}
+@font-face {
+    font-family: Comfortaa;
+    src: url(fonts/Comfortaa.woff);
+}
+@font-face {
+    font-family: Caveat;
+    src: url(fonts/Caveat.woff);
+}
+@keyframes doodle-jump {
+    0%{
+        top: 0;
+    }
+    50%{
+        top: 260px;
+    }
+    100% {
+        top: 0;
+    }
+}
+body {
+    background-image: url(bg.jpg);
+    background-size: cover;
+}
+a {
+    text-decoration: none;
+}
+.header {
+    padding-top: 20px;
+}
+.header-line {
+    display: flex;
+    align-items: center;
+}
+.header-line div {
+    font-family: Exo2;
+    font-weight: 800;
+}
+.logo {
+    margin: 0px 100px;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+.nav-item {
+    margin: 0px 20px;
+    width: 200px;
+    height: 40px;
+    color: #fff;
+    background-image: url(button.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+.main {
+    display: flex;
+    align-items: center;
+}
+.main-animation-area{
+    display: block;
+}
+.main-animation-area [src="source/doodle.png"] {
+    position: relative;
+    animation-name: doodle-jump;
+    animation-duration: 1300ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.main-animation-area [src="source/button.jpg"] {
+    margin-top: 250px;
+    margin-left: 7.5px;
+}
+.main-content{
+    font-family: Comfortaa;
+    font-size: 20px;
+    color: brown;
+    float: right;
+}
+.footer {
+    display: inline-block;
+}
+
+.support-nav {
+    display: flex;
+    align-items: center;
+}
+.support-nav div {
+    font-family: Comfortaa;
+    font-size: 20px;
+    color: darkslategrey;
+    margin: 0px 5px;
+}
+.footer article {
+    font-size: 26px;
+}
