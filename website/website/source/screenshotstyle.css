@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Exo2;
+    src: url(fonts/Exo2-Regular.woff);
+}
+@font-face {
+    font-family: Comfortaa;
+    src: url(fonts/Comfortaa.woff);
+}
+body {
+    background-image: url(bg.jpg);
+    background-size: cover;
+}
+a {
+    text-decoration: none;
+}
+.header {
+    padding-top: 20px;
+}
+.header-line {
+    display: flex;
+    align-items: center;
+}
+.header-line div {
+    font-family: Exo2;
+    font-weight: 800;
+}
+.logo {
+    margin: 0px 100px;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+.nav-item {
+    margin: 0px 20px;
+    width: 200px;
+    height: 40px;
+    color: #fff;
+    background-image: url(button.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+.main {
+    font-family: Exo2;
+    font-size: 20px;
+    color: brown;
+}
+.screenshots {
+    display: flex;
+    align-items: center;
+}
+.screenshots img {
+    width: 405px;
+    height: 536px;
+}
+
+.footer article {
+    font-size: 26px;
+}
