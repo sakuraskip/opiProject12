@@ -73,7 +73,7 @@ int game()
     int score = 0;
 
     Font font;
-    font.loadFromFile("arial.ttf");
+    font.loadFromFile("font/arial.ttf");
 
     Text scoreText;
     scoreText.setFont(font);
@@ -165,7 +165,10 @@ int game()
             }
         }
 
-       
+        // Обновляем текст счетчика
+        scoreText.setString("Score: " + std::to_string(score));
+        scoreText.setColor(Color::Red);
+        app.draw(scoreText);
 
         app.display();
     }
