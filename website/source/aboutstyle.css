@@ -45,11 +45,11 @@ a {
     text-align: center;
     font-size: 25px;
 }
-figcaption{
+.imgcont{
     display: flex;
-    align-items: center;
+    align-content: center;
 }
-figcaption img{
+.imgcont img{
     width: 90vw;
     height: 90vh;
 }

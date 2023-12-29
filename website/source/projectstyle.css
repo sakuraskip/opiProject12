@@ -7,7 +7,7 @@
     src: url(fonts/Comfortaa.woff);
 }
 *:not(.nav-item){
-    font-size: 25px;
+    font-size: 20px;
 }
 body {
     background-image: url(bg.jpg);
@@ -15,6 +15,12 @@ body {
 }
 a {
     text-decoration: none;
+}
+.doc{
+    color: darkgrey;
+}
+.doc:visited{
+    color: darkgrey;
 }
 .header {
     padding-top: 20px;
@@ -49,15 +55,11 @@ a {
     font-size: 25px;
 }
 #name{
-
+    color: brown;
 }
 #aim{
-
+    color: darkolivegreen;
 }
-#date {
-
-}
-
 td{
     border: 1px solid black;
 }
