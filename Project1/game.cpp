@@ -39,10 +39,11 @@ int game()
     RenderWindow app(VideoMode(width, height), "Start Doodle Game");
     app.setFramerateLimit(60);
 
-    Texture t1, t2, t3;
+    Texture t1, t2, t3, coin;
     t1.loadFromFile("images/background.png");
     t2.loadFromFile("images/platform.png");
     t3.loadFromFile("images/doodle.png");
+    coin.loadFromFile("images/coin.png");
 
     Sprite sBackground(t1), sPlat(t2), sPers(t3);
 
@@ -71,6 +72,10 @@ int game()
     int x = 100, y = 100, h = 200;
     float dx = 0, dy = 0;
     int score = 0;
+    int charHeight = 0;
+    int coinX=0, coinY=0;
+    int coinCount = 0;
+    int visibleCheck = 0;
 
     Font font;
     font.loadFromFile("font/arial.ttf");
@@ -80,6 +85,15 @@ int game()
     scoreText.setCharacterSize(30);
     scoreText.setPosition(10, 10);
     scoreText.setFillColor(Color::White);
+    scoreText.setColor(Color::Red);
+
+    Text coinCounter;
+    coinCounter.setFont(font);
+    coinCounter.setCharacterSize(20);
+    coinCounter.setPosition(180, 10);
+    coinCounter.setFillColor(Color::White);
+    coinCounter.setColor(Color::Yellow);
+    
 
     while (app.isOpen())//пока окно приложения открыто
     {
@@ -113,16 +127,50 @@ int game()
                 }
             }
         }
-
-        for (int i = 0; i < 10; i++)
+        if(score<=300)
         {
-            if ((x + 50 > plat[i].x) && (x + 20 < plat[i].x + 68) && (y + 70 > plat[i].y) && (y + 70 < plat[i].y + 14) && (dy > 0))
+            for (int i = 0; i < 10; i++)
             {
-                dy = -10;
-                score += 10; // Увеличиваем счетчик пройденной высоты
+                if ((x + 50 > plat[i].x) && (x + 20 < plat[i].x + 68) && (y + 70 > plat[i].y) && (y + 70 < plat[i].y + 14) && (dy > 0))
+                {
+                    dy = -10;
+                    score += 10; // Увеличиваем счетчик очков
+                }
             }
         }
-
+        if(score >= 300 && 500 > score)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                if ((x + 50 > plat[i].x) && (x + 20 < plat[i].x + 68) && (y + 70 > plat[i].y) && (y + 70 < plat[i].y + 14) && (dy > 0))
+                {
+                    dy = -10;
+                    score += 10; // Увеличиваем счетчик очков
+                }
+            }
+        }
+        if (score >= 500 && 800 > score)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if ((x + 50 > plat[i].x) && (x + 20 < plat[i].x + 68) && (y + 70 > plat[i].y) && (y + 70 < plat[i].y + 14) && (dy > 0))
+                {
+                    dy = -10;
+                    score += 10; // Увеличиваем счетчик очков
+                }
+            }
+        }
+        if (score >= 800)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if ((x + 50 > plat[i].x) && (x + 20 < plat[i].x + 68) && (y + 70 > plat[i].y) && (y + 70 < plat[i].y + 14) && (dy > 0))
+                {
+                    dy = -10;
+                    score += 10; // Увеличиваем счетчик очков
+                }
+            }
+        }
         if (x < -50)
             x = width;
         else if (x > width)
@@ -151,23 +199,62 @@ int game()
             }
             dy = 0;
             score = 0; // Сбрасываем счетчик пройденной высоты при достижении нижней границы
+            charHeight = 0;
         }
 
         sPers.setPosition(x, y);
         app.draw(sBackground);
         app.draw(sPers);
-        for (int i = 0; i < 10; i++)
+        if (score <= 300)
         {
-            if (plat[i].x != 0 && plat[i].y != 0)
+            for (int i = 0; i < 10; i++)
             {
-                sPlat.setPosition(plat[i].x, plat[i].y);
-                app.draw(sPlat);
+                if (plat[i].x != 0 && plat[i].y != 0)
+                {
+                    sPlat.setPosition(plat[i].x, plat[i].y);
+                    app.draw(sPlat);
+                }
             }
         }
+        if(score >= 300 && 500 > score)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                if (plat[i].x != 0 && plat[i].y != 0)
+                {
+                    sPlat.setPosition(plat[i].x, plat[i].y);
+                    app.draw(sPlat);
+                }
+            }
+        }
+        if (score >= 500 && 800 > score)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if (plat[i].x != 0 && plat[i].y != 0)
+                {
+                    sPlat.setPosition(plat[i].x, plat[i].y);
+                    app.draw(sPlat);
+                }
+            }
+        }
+        if (score >= 800)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (plat[i].x != 0 && plat[i].y != 0)
+                {
+                    sPlat.setPosition(plat[i].x, plat[i].y);
+                    app.draw(sPlat);
+                }
+            }
+        }
+        
+        
+        
 
         // Обновляем текст счетчика
         scoreText.setString("Score: " + std::to_string(score));
-        scoreText.setColor(Color::Red);
         app.draw(scoreText);
 
         app.display();
