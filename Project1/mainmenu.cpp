@@ -4,13 +4,13 @@
 
 using namespace sf;
 
-float width = 600;
-float height = 675;//для ширины и высоты окна меню
+float width = 1920;
+float height = 1080;//для ширины и высоты окна меню
 
 
 int menu()
 {
-	bool openMenu = true;
+    bool openMenu = true;
 	int choice = 0;
 	
 	RenderWindow menuWindow(VideoMode(width, height), "name?");//width и height можно заменить на нужные значения
@@ -20,14 +20,14 @@ int menu()
 	Font font;
 	font.loadFromFile("font/lucidaconsole.ttf");
 
-	Texture backgroundTexture;//база для текстуры
-	backgroundTexture.loadFromFile("images/menubackground1.jpg");//любую картинку с таким названием
-	menubackground.setTexture(&backgroundTexture);
 
-	Texture mainMenu;
+	Texture mainMenu,menuAuthors,authorspage;
 	mainMenu.loadFromFile("images/menu.png");
+	menuAuthors.loadFromFile("images/menuauthors.png");
+	authorspage.loadFromFile("images/authorspage.png");
+
 	
-	Sprite menu(mainMenu);
+	Sprite menu(mainMenu), authors(menuAuthors);
 
 	menu.setPosition(0, 0);
 
@@ -53,20 +53,23 @@ int menu()
 			}
 			choice = 0;
 			menuWindow.clear();
+			menuWindow.draw(menubackground);
+			menuWindow.draw(menu);
+			menuWindow.display();
 
-			if (IntRect(184, 263, 225, 48).contains(Mouse::getPosition(menuWindow)))//проверка какой пункт меню выбран
+			if (IntRect(54, 445, 510, 84).contains(Mouse::getPosition(menuWindow)))//проверка какой пункт меню выбран
 			{
 				choice = 1;
 			}
-			if (IntRect(189, 384, 220, 30).contains(Mouse::getPosition(menuWindow)))
+			if (IntRect(74, 637, 510, 56).contains(Mouse::getPosition(menuWindow)))
 			{
 				choice = 2;
 			}
-			if (IntRect(183, 452, 225, 34).contains(Mouse::getPosition(menuWindow)))
+			if (IntRect(60, 749, 506, 54).contains(Mouse::getPosition(menuWindow)))
 			{
 				choice = 3;
 			}
-			if (IntRect(185, 529, 226, 44).contains(Mouse::getPosition(menuWindow)))
+			if (IntRect(68, 871, 510, 74).contains(Mouse::getPosition(menuWindow)))
 			{
 				choice = 4;
 			}
@@ -76,16 +79,20 @@ int menu()
 				{
 					menuWindow.close();//меню закрывается и открывается игра
 					openMenu = false;
+					game();
 				}
-				if (choice == 2)//наебашить картинку с авторами
+				if (choice == 2)//авторы
 				{
-					
+					menuWindow.close();
+					authorspagee();
+						
 				}
-				if (choice == 3)//че-нить придумаю
+				if (choice == 3)//код на гитхаб
 				{
-
+					menuWindow.close();
+					moreAbout();
 				}
-				if (choice == 4)
+				if (choice == 4)//выход
 				{
 					menuWindow.close();
 					openMenu = false;
@@ -94,9 +101,7 @@ int menu()
 				}
 
 			}
-			menuWindow.draw(menubackground);
-			menuWindow.draw(menu);
-			menuWindow.display();
+			
 		}
 	}
 	return 0;
